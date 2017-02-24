@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>DusXproductions</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>258</width>
+    <height>365</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>ImageTiler</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="imgpathDisplay">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>21</y>
+      <width>123</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>image sequence path</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="imgpathButton">
+    <property name="geometry">
+     <rect>
+      <x>129</x>
+      <y>20</y>
+      <width>73</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="processButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>75</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Process</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="MosaicColsVal">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>42</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>4</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MosaicColsLabel">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>150</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mosaic Cols</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rangeLabel">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>70</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;RANGE&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="rangeStartVal">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>30</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="rangeEndVal">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>70</y>
+      <width>41</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="savepathButton">
+    <property name="geometry">
+     <rect>
+      <x>131</x>
+      <y>209</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="savepathDisplay">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>210</y>
+      <width>123</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string>save folder</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="saveName">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>188</y>
+      <width>121</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="maxLength">
+     <number>16</number>
+    </property>
+    <property name="placeholderText">
+     <string>save as name</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rangeStartLabel">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>70</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rangeEndLabel">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>70</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imageSelectLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Image in Sequence</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rangeCountLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>COUNT</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="calcTotalSizeLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TOTAL SIZE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="WXH_Label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>W x H</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="calcTotalSizeLabelDisplay">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>110</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TOTAL SIZE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rangeCountLabelDisplay">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>90</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>COUNT</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="WXH_LabelDisplay">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>40</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>W x H</string>
+    </property>
+   </widget>
+   <zorder>imgpathDisplay</zorder>
+   <zorder>imgpathButton</zorder>
+   <zorder>processButton</zorder>
+   <zorder>MosaicColsVal</zorder>
+   <zorder>MosaicColsLabel</zorder>
+   <zorder>rangeLabel</zorder>
+   <zorder>rangeStartVal</zorder>
+   <zorder>savepathButton</zorder>
+   <zorder>savepathDisplay</zorder>
+   <zorder>saveName</zorder>
+   <zorder>rangeStartLabel</zorder>
+   <zorder>rangeEndLabel</zorder>
+   <zorder>imageSelectLabel</zorder>
+   <zorder>rangeCountLabel</zorder>
+   <zorder>calcTotalSizeLabel</zorder>
+   <zorder>WXH_Label</zorder>
+   <zorder>rangeEndVal</zorder>
+   <zorder>calcTotalSizeLabelDisplay</zorder>
+   <zorder>rangeCountLabelDisplay</zorder>
+   <zorder>WXH_LabelDisplay</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>258</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>imgpathButton</tabstop>
+  <tabstop>rangeStartVal</tabstop>
+  <tabstop>rangeEndVal</tabstop>
+  <tabstop>MosaicColsVal</tabstop>
+  <tabstop>savepathButton</tabstop>
+  <tabstop>processButton</tabstop>
+  <tabstop>savepathDisplay</tabstop>
+  <tabstop>imgpathDisplay</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

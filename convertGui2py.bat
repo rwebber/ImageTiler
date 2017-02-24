@@ -1,0 +1,1 @@
+pyside-uic first.ui  -o gui.py
