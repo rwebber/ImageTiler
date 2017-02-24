@@ -9,7 +9,7 @@ import cv2
 import numpy as np
 import itertools as it
 
-__author__ = 'DusX'
+__author__ = 'DusXproductions'
 
 # NOTE: image files must be names as: name0000.type (eg tile_0001.jpg or shape-000.jpg)
 
