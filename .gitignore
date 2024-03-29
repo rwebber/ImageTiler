@@ -1,2 +1,7 @@
+# pyinstaller
+
 /build/
+/*.spec
+
+# other
 notes.txt
