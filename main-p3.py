@@ -1,13 +1,15 @@
 import sys
 
-from PySide.QtCore import *
-from PySide.QtGui import *
+# import numpy as np
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
 
 import gui
 
-import cv2
 import numpy as np
 import itertools as it
+import cv2
 
 __author__ = 'DusXproductions'
 
@@ -62,46 +64,46 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
             self.WXH_LabelDisplay.setText(self.WxHdisplay)
 
             self.rangeStart = "0"
-            print "-", self.rangeStart
+            print ("-" + self.rangeStart)
             self.rangeStartLabel.setText(self.rangeStart)
 
             self.rangeEnd = "1"
-            print "-", self.rangeEnd
+            print ("-" + self.rangeEnd)
             self.rangeEndLabel.setText(self.rangeEnd)
 
             self.rangeCount = int(self.rangeEnd) - int(self.rangeStart)  # duplicate code ??
             self.rangeCountLabelDisplay.setText(str(self.rangeCount))
 
             self.mosaicCols = self.MosaicColsVal.value()
-            print "mosaic cols = ", self.mosaicCols
+            print("mosaic cols = ", self.mosaicCols)
 
 
         def set_savename(self):
             self.savename = self.saveName.text()
-            print "savename = ", self.savename
+            print ("savename = ", self.savename)
 
         def set_mosaic_cols(self):
             self.mosaicCols = self.MosaicColsVal.value()
-            print "mosaic cols = ", self.mosaicCols
+            print ("mosaic cols = ", self.mosaicCols)
             self.set_range_count()
 
         def set_range_start(self):
             self.rangeStart = self.rangeStartVal.text()
             self.rangeStartLabel.setText(self.rangeStart)
-            print "range start = ", self.rangeStart
+            print ("range start = ", self.rangeStart)
             self.set_range_count()
 
         def set_range_end(self):
             self.rangeEnd = self.rangeEndVal.text()
             self.rangeEndLabel.setText(self.rangeEnd)
-            print "range end = ", self.rangeEnd
+            print ("range end = ", self.rangeEnd)
             self.set_range_count()
 
         def set_range_count(self):
             # check range start and end.. and output the number of items in range
             self.rangeCount = (int(self.rangeEnd) - int(self.rangeStart)) + 1
             self.rangeCountLabelDisplay.setText(str(self.rangeCount))
-            print "range end = ", self.rangeCount
+            print ("range end = ", self.rangeCount)
             # divide by COLS, use modulus to see if even..
             # change output color based on this number.
             if self.rangeCount % self.mosaicCols > 0:
@@ -111,7 +113,7 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
             self.rangeCountLabelDisplay.setText(formattedText)
 
         def process_images(self): # called by Process button
-            print "PROCESSSING...."
+            print ("PROCESSSING....")
             # if mode is set to X call X function
             # routine_basic_mosaic
             # routine_row-by-row_mosaic
@@ -120,7 +122,7 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
             and self.savename != ""  # ensure a filename was set
             and self.rangeStart < self.rangeEnd):  # ensure start is less than end. ** maybe not for reverse??
                 imageroot = self.find_imageroot(self.imgpathDisplay.text())
-                print "imageroot- ", imageroot
+                print ("imageroot- ", imageroot)
                 # return tuple : string (path), int (num of value chars), string (file extension)
                 start_val = int(self.rangeStart)
                 end_val = int(self.rangeEnd)
@@ -129,7 +131,7 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
                 path_list = []
                 for i in range(start_val, end_val + 1):
                     path_list.append(self.construct_count_string(i, imageroot))
-                print "List of files: \n", path_list
+                print ("List of files: \n", path_list)
 
 
                 # ^^^ SETUP A SWITCH FOR DIFFERENT ROUTINES
@@ -138,12 +140,12 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
                 mosaic = self.routine_row_by_row_mosaic(path_list)
 
                 savepath = self.foldername + "\\" + self.savename + ".png" # create full path for saving.
-                print savepath
+                print (savepath)
                 cv2.imwrite(savepath, mosaic)
 
-                print "COMPLETE!"
+                print ("COMPLETE!")
             else:
-                print "can't run processing routine. Start conditions failed."
+                print ("can't run processing routine. Start conditions failed.")
                 return 0
 
         def routine_row_by_row_mosaic(self, path_list):
@@ -178,8 +180,8 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
                     mosaic = np.vstack((blank_row, mosaic))  # combine the blank with the good
 
                 # loop and place images in the blank row...
-                for c in xrange(cols):
-                    print "imgLoaded = ", imgnum
+                for c in range(cols):
+                    print ("imgLoaded = ", imgnum)
                     if imgnum <= len(path_list):
                         img = cv2.imread(path_list[imgnum], cv2.IMREAD_COLOR)
                         mosaic[0:h, startpos:startpos + w] = img  # paste in image - h:h, w:w
@@ -200,13 +202,13 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
 
             num_of_images = len(path_list)
             cols = self.mosaicCols
-            rows = num_of_images / cols
+            rows = num_of_images // cols  # uses floor division op '//' to ensure int output
             if num_of_images % cols > 0: # a remainder row --- incomplete fill
                 rows += 1
 
             mosaic = None  # set to test value. checked in tile routine
             """ process thru the number of rows the final image will have """
-            for r in xrange(rows):
+            for r in range(rows):
                 # call tile in Images for each row.. and pass the count
                 mosaic = tile_in_images(mosaic, path_list, cols, r)
                 # cv2.imshow('image',mosaic)
@@ -233,7 +235,7 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
 
             self.foldername = foldername
             self.savepathDisplay.setText(self.foldername)
-            print self.foldername
+            print (self.foldername)
 
         def filedialog(self):  # method called by pathButton SIGNAL ! Used for OPEN Path
             """
@@ -255,7 +257,7 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
 
             self.selectedfilename = filename[0]
             self.imgpathDisplay.setText(self.selectedfilename)
-            print self.selectedfilename
+            print (self.selectedfilename)
 
             # get size of image
             img = cv2.imread(self.selectedfilename)
@@ -295,10 +297,10 @@ class MyApplication(QMainWindow, gui.Ui_MainWindow):
                         break
                 image_root = start_image[:i]
                 count_span = start_image[i:extension_delimiter]
-                print "span area- ", count_span
+                print("span area- ", count_span)
                 span_count = len(count_span)
                 image_type = start_image[extension_delimiter+1:]
-                print "image type = ", image_type
+                print("image type = ", image_type)
                 if count_span == 0:
                     raise Exception("ERROR, file increment area not found. def: find_imageroot")
                 else:
