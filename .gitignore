@@ -1,6 +1,6 @@
 # pyinstaller
-
 /build/
+/dist/
 /*.spec
 
 # other
