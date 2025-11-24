@@ -1,24 +1,30 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'gui.ui'
+## Form generated from reading UI file 'first.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.0.3
+## Created by: Qt User Interface Compiler version 6.7.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QSpinBox,
+    QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(258, 365)
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
@@ -32,34 +38,34 @@ class Ui_MainWindow(object):
         self.imgpathDisplay.setReadOnly(True)
         self.imgpathButton = QPushButton(self.centralwidget)
         self.imgpathButton.setObjectName(u"imgpathButton")
-        self.imgpathButton.setGeometry(QRect(129, 20, 73, 21))
+        self.imgpathButton.setGeometry(QRect(180, 20, 70, 21))
         self.processButton = QPushButton(self.centralwidget)
         self.processButton.setObjectName(u"processButton")
         self.processButton.setGeometry(QRect(10, 250, 75, 22))
         self.MosaicColsVal = QSpinBox(self.centralwidget)
         self.MosaicColsVal.setObjectName(u"MosaicColsVal")
-        self.MosaicColsVal.setGeometry(QRect(10, 150, 42, 21))
+        self.MosaicColsVal.setGeometry(QRect(10, 150, 88, 21))
         self.MosaicColsVal.setMinimum(1)
         self.MosaicColsVal.setSingleStep(1)
         self.MosaicColsVal.setValue(4)
         self.MosaicColsLabel = QLabel(self.centralwidget)
         self.MosaicColsLabel.setObjectName(u"MosaicColsLabel")
-        self.MosaicColsLabel.setGeometry(QRect(60, 150, 71, 20))
+        self.MosaicColsLabel.setGeometry(QRect(100, 150, 71, 20))
         self.rangeLabel = QLabel(self.centralwidget)
         self.rangeLabel.setObjectName(u"rangeLabel")
-        self.rangeLabel.setGeometry(QRect(75, 70, 51, 20))
+        self.rangeLabel.setGeometry(QRect(95, 70, 51, 20))
         self.rangeStartVal = QLineEdit(self.centralwidget)
         self.rangeStartVal.setObjectName(u"rangeStartVal")
         self.rangeStartVal.setGeometry(QRect(10, 70, 30, 19))
         self.rangeEndVal = QLineEdit(self.centralwidget)
         self.rangeEndVal.setObjectName(u"rangeEndVal")
-        self.rangeEndVal.setGeometry(QRect(160, 70, 41, 19))
+        self.rangeEndVal.setGeometry(QRect(200, 70, 41, 19))
         self.savepathButton = QPushButton(self.centralwidget)
         self.savepathButton.setObjectName(u"savepathButton")
-        self.savepathButton.setGeometry(QRect(131, 209, 71, 21))
+        self.savepathButton.setGeometry(QRect(180, 209, 71, 21))
         self.savepathDisplay = QLineEdit(self.centralwidget)
         self.savepathDisplay.setObjectName(u"savepathDisplay")
-        self.savepathDisplay.setGeometry(QRect(10, 210, 123, 19))
+        self.savepathDisplay.setGeometry(QRect(10, 210, 161, 19))
         self.savepathDisplay.setReadOnly(True)
         self.saveName = QLineEdit(self.centralwidget)
         self.saveName.setObjectName(u"saveName")
@@ -67,12 +73,12 @@ class Ui_MainWindow(object):
         self.saveName.setMaxLength(16)
         self.rangeStartLabel = QLabel(self.centralwidget)
         self.rangeStartLabel.setObjectName(u"rangeStartLabel")
-        self.rangeStartLabel.setGeometry(QRect(45, 70, 31, 20))
-        self.rangeStartLabel.setAlignment(Qt.AlignCenter)
+        self.rangeStartLabel.setGeometry(QRect(55, 70, 31, 20))
+        self.rangeStartLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.rangeEndLabel = QLabel(self.centralwidget)
         self.rangeEndLabel.setObjectName(u"rangeEndLabel")
-        self.rangeEndLabel.setGeometry(QRect(125, 70, 31, 20))
-        self.rangeEndLabel.setAlignment(Qt.AlignCenter)
+        self.rangeEndLabel.setGeometry(QRect(155, 70, 31, 20))
+        self.rangeEndLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.imageSelectLabel = QLabel(self.centralwidget)
         self.imageSelectLabel.setObjectName(u"imageSelectLabel")
         self.imageSelectLabel.setGeometry(QRect(10, 0, 190, 20))
@@ -117,7 +123,7 @@ class Ui_MainWindow(object):
         self.WXH_LabelDisplay.raise_()
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 258, 21))
+        self.menubar.setGeometry(QRect(0, 0, 258, 33))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")

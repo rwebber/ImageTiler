@@ -1,7 +1,11 @@
-# pyinstaller
+__pycache__/
+*.pyc
+*.lnk
+*.spec
+.venv/
+
+/.idea/
 /build/
 /dist/
-/*.spec
-
-# other
-notes.txt
+/Hide/
+/seq/
